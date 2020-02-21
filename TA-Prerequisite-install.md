@@ -1,6 +1,6 @@
 # Prerequisite  for Transformation Advisor
 
-The prerequisite for Transformation Advisor is detailed here.
+Transformation advisor is installed along with the Cloud Pak for Applications. Before installing the same make sure that the prerequisite for Transformation Advisor is avaialble.
 
 The detailed documentation is available in IBM Knowledge Center https://www.ibm.com/support/knowledgecenter/SSCSJL_4.x/install-prerequisites-ta.html
 
