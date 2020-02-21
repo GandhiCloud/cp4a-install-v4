@@ -5,7 +5,7 @@ The prerequisite for Transformation Advisor is detailed here.
 The detailed documentation is available in IBM Knowledge Center https://www.ibm.com/support/knowledgecenter/SSCSJL_4.x/install-prerequisites-ta.html
 
 
-## 1. Verify PV exists
+## Step 1. Verify PV exists
 
 ### Find PV
 
@@ -29,7 +29,7 @@ oc get pv
 oc describe pv <<pv_name>>
 ```
 
-4. If a PV exists with the below condition then you can continue the below steps. If it doesn't then skip to the next task (2. Verify and Install NFS Server). 
+4. If a PV exists with the below condition then you can continue further. If it doesn't then skip to the next step (2. Verify and Install NFS Server). 
 
 ```
 Status : UnBound
@@ -66,7 +66,7 @@ exit
 Prerequisite done and you can go back and install the cloud pak for application.
 
 
-### 2. Verify and Install NFS Server
+### Step 2. Verify and Install NFS Server
 
 *You would need NFS server for Transformation Advisor (ta). If you have existing NFS server, you can skip this step and goto next step.*
 
@@ -106,7 +106,7 @@ systemctl restart rpcbind
 systemctl restart nfs-server
 ```
 
-## 3. Verify Share folder exists for Transformation Advisor
+## Step 3. Verify Share folder exists for Transformation Advisor
 
 Lets assume your NFS share is `/nfsshare`.
 
@@ -120,11 +120,11 @@ mkdir /nfsshare/ta
 chmod 755 /nfsshare/ta
 ```
 
-## 3. Find the NFS Server IP
+## Step 4. Find the NFS Server IP
 
 Note down the IP address of the NFS Server. (Lets assume it is `111.222.333.444`)
 
-## 4. Create PV
+## Step 5. Create PV
 
 We need to create a PV in your cluster by doing below.
 
@@ -159,6 +159,4 @@ spec:
 oc create -f pv.yaml
 ```
 
-## 4.Prerequisite Completed
-
-Prerequisite done and you can go back and install the cloud pak for application.
+*Prerequisite done and you can go back and install the cloud pak for application.*

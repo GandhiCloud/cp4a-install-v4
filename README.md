@@ -1,29 +1,26 @@
 # Cloud Pak for Applications V4.0 Installation
 
-Given below the steps to install the Cloud Pak for applications v4.0 on top of the OCP 4.2 version.
-
-This is a simplified version for IBMers to install in FYRE OCP4.2 cluster.
+Given below the steps to install the Cloud Pak for applications v4.0 on top of RHOCP 4.2 cluster.
 
 Most of the steps mentioned below to be done from your local system. Switch to infra node, when it is explicitly mentioned.
 
 ## References
 
-The detailed steps about this instllation is available in the knowledge center at the location https://www.ibm.com/support/knowledgecenter/SSCSJL_4.x/install-icpa-cli.html
+The detailed steps about this installation is available in the knowledge center at the location https://www.ibm.com/support/knowledgecenter/SSCSJL_4.x/install-icpa-cli.html
 
 Another version of the installation steps are available in https://github.ibm.com/IBMCloudPak4Apps/icpa-install
 
 ## Prerequisites
 
-OCP 4.2 cluster up and running. 
+RHOCP 4.2 cluster up and running. 
 
 ## Steps to install
 
 ### 1. Prerequisite for Transformation Advisor
 
-The pre-requisite for the Transformation Advisor is done available in the below link. Make sure it is done.
+The pre-requisite for the Transformation Advisor is available in the below link. Make sure it is done.
 
-https://github.com/GandhiCloud/cp4a-install-v4/blob/master/TA-Prerequisite-pv-install.md
-
+https://github.com/GandhiCloud/cp4a-install-v4/blob/master/TA-Prerequisite-install.md
 
 ### 2. Get the entitlement key
 
@@ -39,11 +36,11 @@ https://github.ibm.com/CloudpakOpenContent/cloudpak-entitlement
 
 Partners after you order IBM Cloud Pak for Applications, an entitlement key for the cloud pak software is associated with your MyIBM account.
 
-Get the entitlement key that is assigned to your ID.
+Get the entitlement key that is assigned to your ID
 
-    Log in to [MyIBM Container Software Library](https://myibm.ibm.com/products-services/containerlibrary)
- External link icon with the IBMid and password that are associated with the entitled software.
-    In the Entitlement keys section, select Copy key to copy the entitlement key to the clipboard.
+1. Log in to [MyIBM Container Software Library](https://myibm.ibm.com/products-services/containerlibrary)  External link icon with the IBMid and password that are associated with the entitled software.
+
+2. In the Entitlement keys section, select Copy key to copy the entitlement key to the clipboard.
 
 ### 3. Extract the installation configuration from the installer image
 
