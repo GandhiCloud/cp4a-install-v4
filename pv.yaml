@@ -8,7 +8,7 @@ spec:
  capacity:
    storage: 8Gi
  accessModes:
- - ReadWriteOnce
+ - ReadWriteMany
  nfs:
    path: /nfsshare/ta
    server: x.x.x.x
