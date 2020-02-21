@@ -110,3 +110,14 @@ docker run -v ~/.kube:/root/.kube:z -u 0 -t \
 ```
 
 It may take more than 20 minutes time to complete the installation. At the end of the installation you will get the necessary URLs to access Kabanero, TA and Tekton.
+
+
+## Troubleshooting
+
+### TA installation fails in during the installation.
+
+if you have forgotten to do the Prerequisite for Transformation advisor and install the cloud pak for application and it is showing the error in TA. You can do the followings.
+
+1. Do the Prerequisite for Transformation advisor steps given in https://github.com/GandhiCloud/cp4a-install-v4/blob/master/TA-Prerequisite-install.md
+
+2. Continue the step *5. Run the installer*
