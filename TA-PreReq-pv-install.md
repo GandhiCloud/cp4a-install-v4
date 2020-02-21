@@ -26,17 +26,17 @@ systemctl start nfs-server
 
 2. Export the NFS share folder by doing below steps.
 
-  2.1) Open vi editor
+    2.1) Open vi editor
 
-  ```
-  vi /etc/exports
-  ```
+    ```
+    vi /etc/exports
+    ```
 
-  2.2) Add the below line, save and exit the vi editor.
+    2.2) Add the below line, save and exit the vi editor.
 
-  ```
-  /nfsshare *(rw,sync,no_subtree_check,no_root_squash,no_all_squash)
-  ```
+    ```
+    /nfsshare *(rw,sync,no_subtree_check,no_root_squash,no_all_squash)
+    ```
 
 3. Restart nfs-Server by running the below command.
 
