@@ -10,7 +10,7 @@ Most of the steps mentioned below to be done from your local system. Switch to i
 
 The detailed steps about this instllation is available in the knowledge center at the location https://www.ibm.com/support/knowledgecenter/SSCSJL_4.x/install-icpa-cli.html
 
-Another version of the installation steps are availbale in https://github.ibm.com/IBMCloudPak4Apps/icpa-install
+Another version of the installation steps are available in https://github.ibm.com/IBMCloudPak4Apps/icpa-install
 
 ## Prerequisites
 
@@ -18,20 +18,50 @@ OCP 4.2 cluster up and running.
 
 ## Steps to install
 
-### 1. Get the entitlement key
+### 1. Prerequisite for Transformation Advisor
 
-Get the entitlement key of the cloud pak for application from the below URL for the internal consumption.
+The pre-requisite for the Transformation Advisor is done available in the below link. Make sure it is done.
+
+https://github.com/GandhiCloud/cp4a-install-v4/blob/master/TA-Prerequisite-pv-install.md
+
+
+### 2. Get the entitlement key
+
+*Note: there is change in the way we get the entitlement key for IBMers and Partners*
+
+#### IBMers
+
+IBMers can get the entitlement key of the cloud pak for application from the below URL for the internal consumption.
 
 https://github.ibm.com/CloudpakOpenContent/cloudpak-entitlement
 
+#### Partners
 
-### 2. Extract the installation configuration from the installer image
+Partners after you order IBM Cloud Pak for Applications, an entitlement key for the cloud pak software is associated with your MyIBM account.
+
+Get the entitlement key that is assigned to your ID.
+
+    Log in to [MyIBM Container Software Library](https://myibm.ibm.com/products-services/containerlibrary)
+ External link icon with the IBMid and password that are associated with the entitled software.
+    In the Entitlement keys section, select Copy key to copy the entitlement key to the clipboard.
+
+### 3. Extract the installation configuration from the installer image
 
 1. Replace the <<entitlement_key>> value and run the below export commands to set the entitled registry information.
 
+*Note: there is change in the registry user for IBMers and Partners*
+
+#### IBMers
 ```
 export ENTITLED_REGISTRY=cp.icr.io
 export ENTITLED_REGISTRY_USER=ekey
+export ENTITLED_REGISTRY_KEY=<<entitlement_key>>
+```
+
+#### Partners
+```
+export ENTITLED_REGISTRY=cp.icr.io
+export ENTITLED_REGISTRY_USER=cp
 export ENTITLED_REGISTRY_KEY=<<entitlement_key>>
 ```
 
@@ -61,39 +91,10 @@ docker run -v $PWD/data:/data:z -u 0 \
            -e LICENSE=accept \
            "$ENTITLED_REGISTRY/cp/icpa/icpa-installer:4.0.0" cp -r data/* /data
 ```
-### 3. Update NFS folder permission
-
-1. Goto OCP cluster webconsole.
-
-2. Goto NFS PV.
-
-3. Find the value of the nfs.path attribute. It could be like this.
-
-```
-path: /data/nfs1
-```
-
-4. Login to the infra node of your cluster with ssh.
-
-```
-ssh -v root@111.222.333.444
-```
-
-
-5. Run the below command to upgrade the rights to the nfs folder.
-
-```
-chmod -R 777 /data/nfs1
-```
-6. Exit from the infra node by executing the below command
-
-```
-exit
-```
 
 ### 4. Login to OCP cluster
 
-Login to your OCP cluster using the below command. You need to subsitute the value for <your_cluster_hostname>.
+Login to your OCP cluster using the below command. You need to substitute the value for <your_cluster_hostname>.
 
 ```
 oc login https://<your_cluster_hostname> -u <username> -p <password>
