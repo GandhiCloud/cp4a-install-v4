@@ -2,20 +2,8 @@
 
 The prequisite for the Transformation Advisor is given below.
 
-This documentation is already available in the IBM Knowledge Center. https://www.ibm.com/support/knowledgecenter/SSCSJL_4.x/install-prerequisites-ta.html
+The detailed documentation is available in IBM Knowledge Center https://www.ibm.com/support/knowledgecenter/SSCSJL_4.x/install-prerequisites-ta.html
 
-## NFS Server
-
-## 1. Verify NFS Server setup.
-
-You would need NFS server for Transformation Advisor (ta).
-
-If you already have access to nfs server, please note down following two values.
-
-server ip = x.x.x.x <br/>
-path for ta volume = /nfsshare/ta <br/>
-
-*Skip steps below, of you already have nfs server setup*
 
 ### 1. Install NFS Server setup.
 
@@ -36,19 +24,19 @@ systemctl start rpcbind
 systemctl start nfs-server
 ```
 
-2. Export the share by doing below steps.
+2. Export the NFS share folder by doing below steps.
 
-2.1) Open vi editor
+> 2.1) Open vi editor
 
-```
-vi /etc/exports
-```
+> ```
+> vi /etc/exports
+> ```
 
-2.2) Add the below line, save and exit the vi editor.
+> 2.2) Add the below line, save and exit the vi editor.
 
-```
-/nfsshare *(rw,sync,no_subtree_check,no_root_squash,no_all_squash)
-```
+> ```
+> /nfsshare *(rw,sync,no_subtree_check,no_root_squash,no_all_squash)
+> ```
 
 3. Restart nfs-Server by running the below command.
 
