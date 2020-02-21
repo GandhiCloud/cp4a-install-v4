@@ -114,7 +114,7 @@ It may take more than 20 minutes time to complete the installation. At the end o
 
 ## Troubleshooting
 
-### TA installation fails in during the installation.
+### TA installation fails during the installation.
 
 if you have forgotten to do the Prerequisite for Transformation advisor and install the cloud pak for application and it is showing the error in TA. You can do the followings.
 
