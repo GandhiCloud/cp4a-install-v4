@@ -29,7 +29,7 @@ oc get pv
 oc describe pv <<pv_name>>
 ```
 
-4. If a PV exists with the below condition then you can continue further. If it doesn't then skip to the next step (2. Verify and Install NFS Server). 
+4. If a PV exists with the below condition then you can continue further. If it doesn't then skip to the next step (Step 2. Verify and Install NFS Server). 
 
 ```
 Status : UnBound
@@ -61,12 +61,9 @@ chmod -R 777 /nfsshare/ta
 exit
 ```
 
-### Prerequisite Completed
+*....Prerequisite done and you can go back and install the cloud pak for application.....*
 
-Prerequisite done and you can go back and install the cloud pak for application.
-
-
-### Step 2. Verify and Install NFS Server
+## Step 2. Verify and Install NFS Server
 
 *You would need NFS server for Transformation Advisor (ta). If you have existing NFS server, you can skip this step and goto next step.*
 
@@ -159,4 +156,4 @@ spec:
 oc create -f pv.yaml
 ```
 
-*Prerequisite done and you can go back and install the cloud pak for application.*
+*....Prerequisite done and you can go back and install the cloud pak for application.....*
