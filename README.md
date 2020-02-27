@@ -119,9 +119,9 @@ if you have forgotten to do the Prerequisite for Transformation advisor and inst
 
 1. Do the Prerequisite for Transformation advisor steps given in https://github.com/GandhiCloud/cp4a-install-v4/blob/master/TA-Prerequisite-install.md
 
-2. Continue the step *5. Run the installer*
+2. Continue the step `*5. Run the installer*`
 
-### 2. Installation fails with the ststu 
+### 2. Installation fails after Retrying... 
 
 The installation may fail when any of the step taking long time to complete. You may get error like this.
 ```
@@ -133,11 +133,11 @@ msg:
 non-zero return code
 ```
 
-Mostly this is due to timeout issue. To resolve this, wait for a minute and run the step  *5. Run the installer* again.
+Mostly this is due to timeout issue. To resolve this, wait for a minute and run the step  `*5. Run the installer*` again.
 
 ### 3. Un-Installing Cloud pak for App
 
-To uninstall the cloud pak for app run the "docker run -v ..." cmd with uninstall option.
+To uninstall the cloud pak for app run the `docker run -v ..."`cmd with uninstall option.
 ```
 docker run -v ~/.kube:/root/.kube:z -u 0 -t \
            -v $PWD/data:/installer/data:z \
@@ -146,4 +146,22 @@ docker run -v ~/.kube:/root/.kube:z -u 0 -t \
            "$ENTITLED_REGISTRY/cp/icpa/icpa-installer:4.0.1" uninstall
 ```
 
-Mostly this is due to timeout issue. To resolve this, wait for a minute and run the step  *5. Run the installer* again.
+### 4. Got the error `"collections.kabanero.io" is invalid: spec.versions: Invalid value:`
+
+When CP4A is installed using the image `cp.icr.io/cp/icpa/icpa-installer:4.0.0` got the below error.
+
+```
+    CustomResourceDefinition.apiextensions.k8s.io "collections.kabanero.io"
+    is invalid: spec.versions: Invalid value:
+    []apiextensions.CustomResourceDefinitionVersion{apiextensions.CustomResourceDefinitionVersion{Name:"v1alpha1",
+    Served:true, Storage:true,
+    Schema:(*apiextensions.CustomResourceValidation)(0xc0312d48b0),
+    Subresources:(*apiextensions.CustomResourceSubresources)(nil),
+    AdditionalPrinterColumns:[]apiextensions.CustomResourceColumnDefinition(nil)}}:
+    per-version schemas may not all be set to identical values (top-level
+    validation should be used instead)
+```
+
+This issue is due to mismatch in CRD versions between cp4a 4.0.0 and cp4a 4.0.1. 
+
+So uninstaled cp4a 4.0.0 and installed with `cp.icr.io/cp/icpa/icpa-installer:4.0.1` image.
