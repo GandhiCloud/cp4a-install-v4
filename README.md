@@ -1,6 +1,6 @@
-# Cloud Pak for Applications V4.0 Installation
+# Cloud Pak for Applications v4.0.1 Installation
 
-Given below the steps to install the Cloud Pak for applications v4.0 on top of RHOCP 4.2 cluster.
+Given below the steps to install the Cloud Pak for applications v4.0.1 on top of RHOCP 4.2/4.3 cluster.
 
 Most of the steps mentioned below to be done from your local system. Switch to infra node, when it is explicitly mentioned.
 
@@ -12,7 +12,7 @@ Another version of the installation steps are available in https://github.ibm.co
 
 ## Prerequisites
 
-RHOCP 4.2 cluster up and running. 
+RHOCP 4.2/4.3 cluster up and running. 
 
 ## Steps to install
 
@@ -86,7 +86,7 @@ Extract the installation configuration files by running the below command
 ```
 docker run -v $PWD/data:/data:z -u 0 \
            -e LICENSE=accept \
-           "$ENTITLED_REGISTRY/cp/icpa/icpa-installer:4.0.0" cp -r data/* /data
+           "$ENTITLED_REGISTRY/cp/icpa/icpa-installer:4.0.1" cp -r data/* /data
 ```
 
 ### 4. Login to OCP cluster
@@ -106,7 +106,7 @@ docker run -v ~/.kube:/root/.kube:z -u 0 -t \
            -v $PWD/data:/installer/data:z \
            -e LICENSE=accept \
            -e ENTITLED_REGISTRY -e ENTITLED_REGISTRY_USER -e ENTITLED_REGISTRY_KEY \
-           "$ENTITLED_REGISTRY/cp/icpa/icpa-installer:4.0.0" install
+           "$ENTITLED_REGISTRY/cp/icpa/icpa-installer:4.0.1" install
 ```
 
 It may take more than 20 minutes time to complete the installation. At the end of the installation you will get the necessary URLs to access Kabanero, TA and Tekton.
