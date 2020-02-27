@@ -111,13 +111,39 @@ docker run -v ~/.kube:/root/.kube:z -u 0 -t \
 
 It may take more than 20 minutes time to complete the installation. At the end of the installation you will get the necessary URLs to access Kabanero, TA and Tekton.
 
-
 ## Troubleshooting
 
-### TA installation fails during the installation.
+### 1. TA installation fails with TA issues.
 
 if you have forgotten to do the Prerequisite for Transformation advisor and install the cloud pak for application and it is showing the error in TA. You can do the followings.
 
 1. Do the Prerequisite for Transformation advisor steps given in https://github.com/GandhiCloud/cp4a-install-v4/blob/master/TA-Prerequisite-install.md
 
 2. Continue the step *5. Run the installer*
+
+### 2. Installation fails with the ststu 
+
+The installation may fail when any of the step taking long time to complete. You may get error like this.
+```
+  Retrying... (39 of 41)
+  Retrying... (40 of 41)
+failed
+
+msg: 
+non-zero return code
+```
+
+Mostly this is due to timeout issue. To resolve this, wait for a minute and run the step  *5. Run the installer* again.
+
+### 3. Un-Installing Cloud pak for App
+
+To uninstall the cloud pak for app run the "docker run -v ..." cmd with uninstall option.
+```
+docker run -v ~/.kube:/root/.kube:z -u 0 -t \
+           -v $PWD/data:/installer/data:z \
+           -e LICENSE=accept \
+           -e ENTITLED_REGISTRY -e ENTITLED_REGISTRY_USER -e ENTITLED_REGISTRY_KEY \
+           "$ENTITLED_REGISTRY/cp/icpa/icpa-installer:4.0.1" uninstall
+```
+
+Mostly this is due to timeout issue. To resolve this, wait for a minute and run the step  *5. Run the installer* again.
