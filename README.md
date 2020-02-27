@@ -115,7 +115,7 @@ It may take more than 20 minutes time to complete the installation. At the end o
 
 ### 1. TA installation fails with TA issues.
 
-if you have forgotten to do the Prerequisite for Transformation advisor and install the cloud pak for application and it is showing the error in TA. You can do the followings.
+if you have forgotten to do the Prerequisite for Transformation advisor and installed the cloud pak for application and it is showing the error in TA. You can do the followings.
 
 1. Do the Prerequisite for Transformation advisor steps given in https://github.com/GandhiCloud/cp4a-install-v4/blob/master/TA-Prerequisite-install.md
 
@@ -133,7 +133,7 @@ msg:
 non-zero return code
 ```
 
-Mostly this is due to timeout issue. To resolve this, wait for a minute and run the step  `*5. Run the installer*` again.
+Mostly this is due to timeout issue. To resolve this, wait for few minutes and run the step  `*5. Run the installer*` again.
 
 ### 3. Un-Installing Cloud pak for App
 
@@ -164,4 +164,4 @@ When CP4A is installed using the image `cp.icr.io/cp/icpa/icpa-installer:4.0.0` 
 
 This issue is due to mismatch in CRD versions between cp4a 4.0.0 and cp4a 4.0.1. 
 
-So uninstaled cp4a 4.0.0 and installed with `cp.icr.io/cp/icpa/icpa-installer:4.0.1` image.
+So uninstalled cp4a 4.0.0 and installed with `cp.icr.io/cp/icpa/icpa-installer:4.0.1` image.
